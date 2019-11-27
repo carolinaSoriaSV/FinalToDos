@@ -36,10 +36,17 @@ class App extends Component {
     this.setState({ list: [] });
   };
 
-  removeRow = key => {
-    this.state.items[key].isDeleted = true;
+  removeRow = item => {
+    this.setState.items[item].isDeleted = true;
     localStorage.setItem("todos", JSON.stringify(this.state.items));
   };
+
+  // removeRow = item => {
+  //   this.setState(state => ({
+  //     items: state.items.filter(text => text !== item)
+  //   }));
+  //   localStorage.setItem("todos", JSON.stringify(this.state.items));
+  // };
 
   handleClick = () => {
     console.log("FUNCIONA¡¡?????!¡¡!¡!¡!¡");
@@ -51,6 +58,7 @@ class App extends Component {
       this.setState({ items: getTodos });
     }
   }
+
   render() {
     return (
       <div className="App">

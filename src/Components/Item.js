@@ -7,13 +7,14 @@ class Item extends React.Component {
   };
 
   finished = () => {
-    this.setState({ isFinished: !this.state.isFinished })
+    this.setState({ isFinished: !this.state.isFinished });
   };
 
   deleted = () => {
-    this.setState({ isDeleted: true }) && this.removeRow(this.key)
+    this.setState({ isDeleted: true });
+    this.props.removeRow(this.props.item.name);
+    // this.props.removeRow(text??);
   };
-
 
   render() {
     return (
