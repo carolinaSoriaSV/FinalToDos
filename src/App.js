@@ -36,30 +36,12 @@ class App extends Component {
     this.setState({ list: [] });
   };
 
-  removeRow = item => {
+  refresh = item => {
     let todos = this.state.items;
-    todos.splice(todos.indexOf(item), 1);
     localStorage.setItem("todos", JSON.stringify(todos));
     this.setState({
       items: todos
     });
-  };
-
-  // removeRow = item => {
-  //   let todos = this.state.items;
-  //   // filter method --> taking out item that matches value of clicked item
-  //   let filtered = this.state.items.filter(term => {
-  //     return term !== item;
-  //   });
-  //   // setting the filtered array as new state --> all items minus clicked item
-  //   localStorage.setItem("todos", JSON.stringify(todos));
-  //   this.setState({
-  //     items: filtered
-  //   });
-  // };
-
-  handleClick = () => {
-    console.log("FUNCIONA¡¡?????!¡¡!¡!¡!¡");
   };
 
   componentDidMount() {
@@ -97,7 +79,7 @@ class App extends Component {
             <List
               items={this.state.items}
               name={this.state.term}
-              removeRow={this.removeRow}
+              refresh={this.refresh}
             />
           }
         </div>

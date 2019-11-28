@@ -6,13 +6,7 @@ class List extends React.Component {
     return (
       <ul>
         {this.props.items.map((item, index) => (
-          <Item
-            key={index}
-            item={item}
-            // onClick={() => this.removeRow(this.index)}
-            handleClick={this.props.handleClick}
-            removeRow={this.props.removeRow}
-          ></Item>
+          <Item key={index} item={item} refresh={this.props.refresh}></Item>
         ))}
       </ul>
     );

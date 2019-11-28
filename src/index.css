@@ -10,7 +10,13 @@ body {
   background-color: #ffd3e8;
 }
 .taskhidden {
-  visibility: hidden;
+  display: none;
+}
+.taskunfinished {
+  text-decoration: none;
+}
+.taskfinished {
+  text-decoration: line-through;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

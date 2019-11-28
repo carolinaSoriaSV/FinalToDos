@@ -1,32 +1,27 @@
 import React from "react";
 
 class Item extends React.Component {
-  state = {
-    isFinished: false,
-    isDeleted: false
-  };
-
   finished = () => {
-    this.setState({ isFinished: !this.state.isFinished });
+    this.props.item.isFinished = !this.props.item.isFinished;
+    this.props.refresh(this.props.item.name);
   };
 
   deleted = () => {
-    this.setState({ isDeleted: true });
-    this.props.removeRow(this.props.item.name);
-    // this.props.removeRow(text??);
+    this.props.item.isDeleted = true;
+    this.props.refresh(this.props.item.name);
   };
 
   render() {
     return (
       <>
         <li
-          className={"task" + (!this.state.isDeleted ? "show" : "hidden")}
+          className={"task" + (!this.props.item.isDeleted ? "show" : "hidden")}
           key={this.props.index}
         >
           <p
-            style={{
-              textDecoration: this.state.isFinished ? "line-through" : ""
-            }}
+            className={
+              "task" + (!this.props.item.isFinished ? "unfinished" : "finished")
+            }
           >
             {" "}
             {this.props.item.name}{" "}
