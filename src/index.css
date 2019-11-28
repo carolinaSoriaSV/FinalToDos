@@ -7,6 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   padding: 50px;
   font-family: sans-serif;
+  background-color: #ffd3e8;
 }
 .taskhidden {
   visibility: hidden;
@@ -107,6 +108,9 @@ li:hover {
   flex-direction: column;
   width: 400px;
   height: auto;
-  border: 1px solid black;
-  background-color: seashell;
+
+  -webkit-box-shadow: 10px 10px 41px -18px rgba(0, 0, 0, 0.64);
+  -moz-box-shadow: 10px 10px 41px -18px rgba(0, 0, 0, 0.64);
+  box-shadow: 10px 10px 41px -18px rgba(0, 0, 0, 0.64);
+  background-color: #ffd7d5;
 }

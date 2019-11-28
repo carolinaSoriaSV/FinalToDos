@@ -19,25 +19,3 @@ class List extends React.Component {
   }
 }
 export default List;
-
-// class List extends React.Component {
-//   render() {
-//     return (
-//       <ul>
-//         {this.props.items.forEach((item, index) => {
-//           return (
-//             <Item
-//               key={index}
-//               item={item}
-//               onClick={() => this.removeRow(this.index)}
-//               handleClick={this.props.handleClick}
-//               removeRow={this.props.removeRow}
-//             />
-//           );
-//         })}
-//       </ul>
-//     );
-//   }
-// }
-
-// export default List;

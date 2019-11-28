@@ -37,15 +37,25 @@ class App extends Component {
   };
 
   removeRow = item => {
-    this.setState.items[item].isDeleted = true;
-    localStorage.setItem("todos", JSON.stringify(this.state.items));
+    let todos = this.state.items;
+    todos.splice(todos.indexOf(item), 1);
+    localStorage.setItem("todos", JSON.stringify(todos));
+    this.setState({
+      items: todos
+    });
   };
 
   // removeRow = item => {
-  //   this.setState(state => ({
-  //     items: state.items.filter(text => text !== item)
-  //   }));
-  //   localStorage.setItem("todos", JSON.stringify(this.state.items));
+  //   let todos = this.state.items;
+  //   // filter method --> taking out item that matches value of clicked item
+  //   let filtered = this.state.items.filter(term => {
+  //     return term !== item;
+  //   });
+  //   // setting the filtered array as new state --> all items minus clicked item
+  //   localStorage.setItem("todos", JSON.stringify(todos));
+  //   this.setState({
+  //     items: filtered
+  //   });
   // };
 
   handleClick = () => {
@@ -83,12 +93,10 @@ class App extends Component {
               <button type="submit">Add task</button>
             )}
           </form>
-          {/* a list le pasamos la funcion remove handler */}
           {
             <List
               items={this.state.items}
               name={this.state.term}
-              handleClick={this.handleClick}
               removeRow={this.removeRow}
             />
           }
@@ -98,8 +106,6 @@ class App extends Component {
   }
 }
 
-// poner una condicion en el boton, si esta vacio que no se agregue
-// que muestre un div
 // https://reactjs.org/docs/faq-functions.html
 
 export default App;
